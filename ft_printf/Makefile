@@ -13,7 +13,7 @@
 NAME: ft_printf
 
 all:
-	@gcc -c -Wall -Wextra -Werror ./srcs/*.c -Iincludes/*
+	@gcc -c ./srcs/*.c -Iincludes/*
 	@gcc *.o -o ft_printf -L./libft -lft
 	
 clean:

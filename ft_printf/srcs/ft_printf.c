@@ -21,7 +21,12 @@ void		ft_check_type(va_list list, char format)
 	else if (format == 'p')
 		ft_char_place(va_arg(list, int));
 	else if (format == 'd' || format == 'i')
-		ft_int_place(va_arg(list, int));
+	{
+		if (ft_strchr(g_flags, 'l'))
+			ft_lint_place(va_arg(list, long));
+		else
+			ft_int_place(va_arg(list, int));
+	}
 }
 
 char		*ft_get_flags(char *format, int i)
@@ -118,8 +123,8 @@ int			main(void)
 
 	i = 0;
 	n = 0;
-	i = printf("Hello %5.5d, SUKA, %d\n", 123, 456);
-	n = ft_printf("Hello %5.5d, SUKA, %d\n", 123, 456);
-	// printf("%d||%d\n", i, n);
+	i = printf("Hello \t|%12i|\t|%12i|\t|%12i|\n", INT_MIN, INT_MAX,0);
+	n = ft_printf("Hello \t|%12i|\t|%12i|\t|%12i|\n", INT_MIN, INT_MAX,0);
+	printf("%d||%d\n", i, n);
 	return (0);
 }
