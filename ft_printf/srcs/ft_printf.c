@@ -22,10 +22,10 @@ void		ft_check_type(va_list list, char format)
 		ft_char_place(va_arg(list, int));
 	else if (format == 'd' || format == 'i')
 	{
-		if (ft_strchr(g_flags, 'l'))
-			ft_lint_place(va_arg(list, long));
-		else
-			ft_int_place(va_arg(list, int));
+		// if (ft_strchr(g_flags, 'l'))
+		// 	ft_iint_place(va_arg(list, long));
+		// else
+		ft_int_place(va_arg(list, int));
 	}
 }
 
@@ -116,15 +116,101 @@ void		ft_death(char *str)
 	exit(1);
 }
 
-int			main(void)
-{
-	int		i;
-	int		n;
+// int			main(void)
+// {
+// 	int		i;
+// 	int		n;
 
-	i = 0;
-	n = 0;
-	i = printf("Hello \t|%12i|\t|%12i|\t|%12i|\n", INT_MIN, INT_MAX,0);
-	n = ft_printf("Hello \t|%12i|\t|%12i|\t|%12i|\n", INT_MIN, INT_MAX,0);
-	printf("%d||%d\n", i, n);
-	return (0);
-}
+// 	i = 0;
+// 	n = 0;
+// 	printf("_____________________________\n");
+// 	printf("HELLO %8.5d\n", 4235);
+// 	ft_printf("HELLO %8.5d\n", 4235);
+// 	printf("_____________________________\n");
+// 	printf("HELLO %8.5d\n", -4235);
+// 	ft_printf("HELLO %8.5d\n", -4235);
+// 	// i = printf("Hello %5.13d\n", 1);
+// 	// n = ft_printf("Hello %5.13d\n", 1);
+// 	// printf("_____________________________\n");
+// 	// printf("Hello %5.13d\n", 1);
+// 	// ft_printf("Hello %5.13d\n", 1);
+// 	// printf("_____________________________\n");
+// 	// printf("Hello %13.5d\n", 1);
+// 	// ft_printf("Hello %13.5d\n", 1);
+// 	// printf("_____________________________\n");
+// 	// printf("Hello %13d\n", 1);
+// 	// ft_printf("Hello %13d\n", 1);
+// 	// printf("_____________________________\n");
+// 	// printf("Hello %.13d\n", 1);
+// 	// ft_printf("Hello %.13d\n", 1);
+// 	// printf("_____________________________\n");
+// 	// printf("Hello %5.13d\n", -1);
+// 	// ft_printf("Hello %5.13d\n", -1);
+// 	// printf("_____________________________\n");
+// 	// printf("Hello %13.5d\n", -1);
+// 	// ft_printf("Hello %13.5d\n", -1);
+// 	// printf("_____________________________\n");
+// 	// printf("Hello %13d\n", -1);
+// 	// ft_printf("Hello %13d\n", -1);
+// 	// printf("_____________________________\n");
+// 	// printf("Hello %.13d\n", -1);
+// 	// ft_printf("Hello %.13d\n", -1);
+// 	// printf("_____________________________\n");
+// 	// printf("WIDTH WITH ZERO +/-:\n");
+// 	// printf("_____________________________\n");
+// 	// printf("Hello %013d\n", -1);
+// 	// ft_printf("Hello %013d\n", -1);
+// 	// printf("_____________________________\n");
+// 	// printf("Hello %013d\n", 1);
+// 	// ft_printf("Hello %013d\n", 1);
+// 	// printf("_____________________________\n");
+// 	// printf("WIDTH WITH SPACE, MINUS AND ZERO:\n");
+// 	// printf("_____________________________\n");
+// 	// printf("Hello %-13d\n", 1);
+// 	// ft_printf("Hello %-13d\n", 1);
+// 	// printf("_____________________________\n");
+// 	// printf("Hello % 013d\n", 1);
+// 	// ft_printf("Hello % 013d\n", 1);
+// 	// printf("_____________________________\n");
+// 	// printf("Hello %- 013d\n", 1);
+// 	// ft_printf("Hello %- 013d\n", 1);
+// 	// printf("_____________________________\n");
+// 	// printf("Hello % 013d\n", -1);
+// 	// ft_printf("Hello % 013d\n", -1);
+// 	// printf("_____________________________\n");
+// 	// printf("WIDTH == PRECISION:\n");
+// 	// printf("_____________________________\n");
+// 	// printf("Hello %13.13d\n", 1);
+// 	// ft_printf("Hello %13.13d\n", 1);
+// 	// printf("_____________________________\n");
+// 	// printf("SHITTY INPUT TRIAL:\n");
+// 	// printf("_____________________________\n");
+// 	// printf("Hello %13.13.10d\n", 1);
+// 	// ft_printf("Hello %13.13.10d\n", 1);
+// 	// printf("_____________________________\n");
+// 	// printf("Hello %--00  13.10d\n", 1);
+// 	// ft_printf("Hello %--00  13.10d\n", 1);
+// 	// printf("_____________________________\n");
+// 	// printf("Hello %#d\n", 1);
+// 	// ft_printf("Hello %#d\n", 1);
+// 	// printf("_____________________________\n");
+// 	// printf("PLUS:\n");
+// 	// printf("_____________________________\n");
+// 	// printf("Hello %+13.13d\n", 1);
+// 	// ft_printf("Hello %+13.13d\n", 1);
+// 	// printf("_____________________________\n");
+// 	// printf("Hello %+5.13d\n", 1);
+// 	// ft_printf("Hello %+5.13d\n", 1);
+// 	// printf("_____________________________\n");
+// 	// printf("Hello %+13.5d\n", 1);
+// 	// ft_printf("Hello %+13.5d\n", 1);
+// 	// printf("_____________________________\n");
+// 	// printf("Hello %+13d\n", 1);
+// 	// ft_printf("Hello %+13d\n", 1);
+// 	// printf("_____________________________\n");
+// 	// printf("Hello %+.13d\n", 1);
+// 	// ft_printf("Hello %+.13d\n", 1);
+// 	// printf("_____________________________\n");
+// 	// printf("%d||%d\n", i, n);
+// 	return (0);
+// }

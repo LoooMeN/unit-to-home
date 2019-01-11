@@ -27,7 +27,7 @@
 # define INT_MAX 2147483647
 
 int		g_minus;
-int		g_res_num;
+int		g_plus;
 char	*g_result;
 char	*g_flags;
 
@@ -36,8 +36,7 @@ void	ft_string_place(char *str);
 char	*ft_strjoin_my(char const *s1, char const *s2);
 void	ft_int_place(int n);
 void	ft_death(char *str);
-void	ft_lint_place(long int n);
 char	*ft_itol(long int n);
-int		ft_width_precision(char *num);
+int		ft_width_precision(char *num, int flag);
 
 #endif
