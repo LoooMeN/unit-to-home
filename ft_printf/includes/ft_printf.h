@@ -31,12 +31,24 @@ int		g_plus;
 char	*g_result;
 char	*g_flags;
 
+typedef	struct	s_par
+{
+	int			minus;
+	int			plus;
+	int			zeroes;
+	int			below_zero;
+	int			space;
+	int			width;
+	int			precision;
+	int			hash;
+}				t_par;
+
 void	ft_char_place(char c);
 void	ft_string_place(char *str);
 char	*ft_strjoin_my(char const *s1, char const *s2);
 void	ft_int_place(int n);
-void	ft_death(char *str);
+t_par	*ft_ini_struct(void);
 char	*ft_itol(long int n);
-int		ft_width_precision(char *num, int flag);
+int		ft_width_precision(char *num, t_par *params);
 
 #endif
