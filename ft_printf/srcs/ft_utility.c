@@ -15,6 +15,7 @@ t_par		*ft_ini_struct(void)
 	params->width = -1;
 	params->precision = 0;
 	params->hash = 0;
+	params->len = 0;
 	return (params);
 }
 

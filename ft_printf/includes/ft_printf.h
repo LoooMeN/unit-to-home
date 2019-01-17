@@ -41,6 +41,7 @@ typedef	struct	s_par
 	int			width;
 	int			precision;
 	int			hash;
+	int			len;
 }				t_par;
 
 void	ft_char_place(char c);

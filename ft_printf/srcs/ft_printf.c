@@ -91,8 +91,8 @@ int			main(void)
 
 	i = 0;
 	n = 0;
-	i = printf("Hello %10.6d\n", -12345);
-	n = ft_printf("Hello %10.6d\n", -12345);
+	i = printf("Hello |%4.7d|\n", 12345);
+	n = ft_printf("Hello |%4.7d|\n", 12345);
 	printf("%d||%d\n", i, n);
 	return (0);
 }
