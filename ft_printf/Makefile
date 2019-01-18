@@ -10,11 +10,13 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME: ft_printf
+NAME = ft_printf
 
-all:
+all: $(NAME)
+
+$(NAME):
 	@gcc -c ./srcs/*.c -Iincludes/*
-	@gcc *.o -o ft_printf -L./libft -lft
+	@gcc *.o -o ft_printf -L./libft -lft test.c
 	
 clean:
 	@rm -rf *.o

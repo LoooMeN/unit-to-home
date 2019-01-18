@@ -12,11 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-void	ft_char_place(char c)
+void	ft_char_place(char n)
 {
-	char	*temp;
-
-	temp = g_result;
-	g_result = ft_strjoin_my(g_result, &c);
-	free(temp);
+	g_result = ft_strjoin_my(g_result, &n);
 }

@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-static long		int_len(long int n)
+static long int		int_len(long int n)
 {
 	int		i;
 

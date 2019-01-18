@@ -22,10 +22,31 @@ void		ft_check_type(va_list list, char format)
 		ft_char_place(va_arg(list, int));
 	else if (format == 'd' || format == 'i')
 	{
-		// if (ft_strchr(g_flags, 'l'))
-		// 	ft_iint_place(va_arg(list, long));
-		// else
-		ft_int_place(va_arg(list, int));
+		if (ft_strchr(g_flags, 'l'))
+			ft_lint_place(va_arg(list, long int));
+		else if (ft_strchr(g_flags, 'h'))
+		{
+			if (*(ft_strchr(g_flags, 'h') + 1) == 'h')
+				ft_hhint_place((short int)va_arg(list, int));
+			else
+				ft_hint_place(va_arg(list, int));
+		}
+		else
+			ft_int_place(va_arg(list, int));
+	}
+	else if (format == 'u')
+	{
+		if (ft_strchr(g_flags, 'l'))
+			ft_ul_place(va_arg(list, unsigned long int));
+		else if (ft_strchr(g_flags, 'h'))
+		{
+			if (*(ft_strchr(g_flags, 'h') + 1) == 'h')
+				ft_hhint_place((unsigned short int)va_arg(list, unsigned int));
+			else
+				ft_hint_place(va_arg(list, unsigned int));
+		}
+		else
+			ft_u_place(va_arg(list, unsigned int));
 	}
 }
 
@@ -35,12 +56,12 @@ char		*ft_get_flags(char *format, int i)
 	char	*res;
 
 	j = i;
-	while (format[i] != 'c' && format[i] != 's' && format[i] != 'p' && format[i] != 'i'  && format[i] != 'd')
+	while (format[i] != 'c' && format[i] != 's' && format[i] != 'p' && format[i] != 'i'  && format[i] != 'd' && format[i] != 'u')
 		i++;
 	i -= j;
 	res = (char*)malloc(sizeof(char) * i + 1);
 	i = 0;
-	while (format[j] != 'c' && format[j] != 's' && format[j] != 'p' && format[j] != 'i'  && format[j] != 'd')
+	while (format[j] != 'c' && format[j] != 's' && format[j] != 'p' && format[j] != 'i'  && format[j] != 'd' && format[j] != 'u')
 	{
 		res[i] = format[j];
 		i++;
@@ -82,17 +103,4 @@ int			ft_printf(char *format, ...)
 	reslen = ft_strlen(g_result);
 	free(g_result);
 	return (reslen);
-}
-
-int			main(void)
-{
-	int		i;
-	int		n;
-
-	i = 0;
-	n = 0;
-	i = printf("Hello |%4.7d|\n", 12345);
-	n = ft_printf("Hello |%4.7d|\n", 12345);
-	printf("%d||%d\n", i, n);
-	return (0);
 }
